@@ -53,6 +53,8 @@ Coordinate frame transformation is required to convert the sensor observations i
 
 ![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bmap%7D%5C%5Cy_%7Bmap%7D%5C%5C1%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dcos%5Ctheta_%7Bp%7D%26-sin%5Ctheta_%7Bp%7D%26x_%7Bp%7D%5C%5Csin%5Ctheta_%7Bp%7D%26cos%5Ctheta_%7Bp%7D%26y_%7Bp%7D%5C%5C0%260%261%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7Dx_%7Bcar%7D%5C%5Cy_%7Bcar%7D%5C%5C1%5Cend%7Bpmatrix%7D)
 
+where ![](https://latex.codecogs.com/gif.latex?(x_{p},y_{p},\theta_{p})^{T}) is the particle or vehicle state in the map coordinate system, ![](https://latex.codecogs.com/gif.latex?x_{map}) is the measurement in map coordinate system and ![](https://latex.codecogs.com/gif.latex?x_{car}) is the measurement in vehicle coordinate system.
+
 After the coordinate frame transformation, nearest neighbor data association is then performed to pick the right corresponding landmark and observation pairs. The figure below illustrates general concept of nearest neighbor data association.
 
 <img src="/images/data_association.png" width="600">
