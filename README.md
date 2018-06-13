@@ -53,13 +53,15 @@ Coordinate frame transformation is required to convert the sensor observations i
 
 ![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bmap%7D%5C%5Cy_%7Bmap%7D%5C%5C1%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dcos%5Ctheta_%7Bp%7D%26-sin%5Ctheta_%7Bp%7D%26x_%7Bp%7D%5C%5Csin%5Ctheta_%7Bp%7D%26cos%5Ctheta_%7Bp%7D%26y_%7Bp%7D%5C%5C0%260%261%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7Dx_%7Bcar%7D%5C%5Cy_%7Bcar%7D%5C%5C1%5Cend%7Bpmatrix%7D)
 
-where ![](https://latex.codecogs.com/gif.latex?(x_{p},y_{p},\theta_{p})^{T}) is the particle or vehicle state in the map coordinate system, ![](https://latex.codecogs.com/gif.latex?x_{map}) is the measurement in map coordinate system and ![](https://latex.codecogs.com/gif.latex?x_{car}) is the measurement in vehicle coordinate system.
+where ![](https://latex.codecogs.com/gif.latex?(x_{p},y_{p},\theta_{p})^{T}) is the particle or vehicle state in the map coordinate system, ![](https://latex.codecogs.com/gif.latex?(x_{map},y_{map})^{T}) is the measurement in map coordinate system and ![](https://latex.codecogs.com/gif.latex?(x_{car},y_{car})^{T}) is the measurement in vehicle coordinate system.
 
 After the coordinate frame transformation, nearest neighbor data association is then performed to pick the right corresponding landmark and observation pairs. The figure below illustrates general concept of nearest neighbor data association.
 
 <img src="/images/data_association.png" width="600">
 
 The sensor observations is incorporated into the particle filter by updating the weight of each particle with the likelihood of the sensor observations. Likelihood of individual sensor observations is calculated via a multivariate Gaussian probability density function. 
+
+where ![](https://latex.codecogs.com/gif.latex?P(x,y)=\frac{1}{2\pi\sigma_{x}\sigma_{y}}e^{-\frac{1}{2}(\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}+\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}})})
 
 By assuming individual sensor measurements are independent to each other, the likelihood of all the measurements are combined by taking their product, resulting the following equation:
 
