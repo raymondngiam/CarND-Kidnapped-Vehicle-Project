@@ -61,10 +61,15 @@ After the coordinate frame transformation, nearest neighbor data association is 
 
 The sensor observations is incorporated into the particle filter by updating the weight of each particle with the likelihood of the sensor observations. Likelihood of individual sensor observations is calculated via a multivariate Gaussian probability density function. 
 
-where ![](https://latex.codecogs.com/gif.latex?P(x,y)=\frac{1}{2\pi\sigma_{x}\sigma_{y}}e^{-\frac{1}{2}(\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}+\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}})})
+![](https://latex.codecogs.com/gif.latex?P(x,y;\mu_{x},\mu_{y},\sigma_{x}^{2},\sigma_{y}^{2})=\frac{1}{2\pi\sigma_{x}\sigma_{y}}e^{-\frac{1}{2}(\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}+\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}})})
+
+where ![](https://latex.codecogs.com/gif.latex?(x,y)^{T}) is a sensor observation in map coordinate system, ![](https://latex.codecogs.com/gif.latex?(\mu_{x},\mu_{y})^{T}) is the associated landmark coordinate in map coordinate sytem, ![](https://latex.codecogs.com/gif.latex?\sigma_{x}^{2}) and ![](https://latex.codecogs.com/gif.latex?\sigma_{y}^{2}) are the variance of the sensor measurements.
 
 By assuming individual sensor measurements are independent to each other, the likelihood of all the measurements are combined by taking their product, resulting the following equation:
 
+![](https://latex.codecogs.com/gif.latex?w=\prod_{i=0}^{m} P(x_{i},y_{i};\mu_{x,i},\mu_{y,i},\sigma_{x}^{2},\sigma_{y}^{2}))
+
+where ![](https://latex.codecogs.com/gif.latex?m) is the number of sensor observations at a time step.
 
 **Resample**
 
