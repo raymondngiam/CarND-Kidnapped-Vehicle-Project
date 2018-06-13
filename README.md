@@ -35,7 +35,7 @@ The motion model used, i.e. bicycle model is as illustrated below:
 
 <img src="/images/bicycle_model.png" width="600">
 
-The motion prediction for each time step, ![](https://latex.codecogs.com/gif.latex?\delta t), based on control inputs velocity, ![](https://latex.codecogs.com/gif.latex?v) and yaw rate, ![](https://latex.codecogs.com/gif.latex?\dot{\theta}), is governed by the following dynamics:
+The motion prediction for each time step, ![](https://latex.codecogs.com/gif.latex?%5CDelta%20t), based on control inputs velocity, ![](https://latex.codecogs.com/gif.latex?v) and yaw rate, ![](https://latex.codecogs.com/gif.latex?\dot{\theta}), is governed by the following dynamics:
 
 ![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bf%7D%5C%5Cy_%7Bf%7D%5C%5C%5Ctheta_%7Bf%7D%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dx_%7B0%7D%5C%5Cy_%7B0%7D%5C%5C%5Ctheta_%7B0%7D%5Cend%7Bpmatrix%7D%2B%5Cbegin%7Bpmatrix%7Dvcos%28%5Ctheta_%7B0%7D%29%5CDelta%20t%5C%5Cvsin%28%5Ctheta_%7B0%7D%29%5CDelta%20t%5C%5C0%5Cend%7Bpmatrix%7D) when ![](https://latex.codecogs.com/gif.latex?\dot{\theta}=0)
 
