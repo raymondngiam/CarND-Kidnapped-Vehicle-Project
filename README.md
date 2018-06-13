@@ -9,7 +9,7 @@ This is a project for Udacity's Self Driving Car Nanodegree. A self driving vehi
 
 ### Video Demo
 
-<img src="/images/demo.gif" width="600">
+<img src="/images/demo.gif" width="800">
 
 The green lines are ground truth laser observations of the vehicle, the blue lines are laser observations from the most probable particle.
 
@@ -49,7 +49,7 @@ The prediction step is applied to all the particles.
 Coordinate frame transformation is required to convert the sensor observations in vehicle coordinate system into the same reference frame as the map landmarks. This is given by a homogeneous transformation as follows:
 
 
-After the coordinate frame transformation, data association is then performed to 
+After the coordinate frame transformation, data association is then performed to pick the right corresponding landmark and observa
 
 
 **Resample**
