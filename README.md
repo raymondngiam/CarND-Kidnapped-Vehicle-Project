@@ -79,7 +79,7 @@ After the update step, all the particles are resampled by the means of discrete 
 
 Once resampling is done, the particle with highest weight is chosen. This particle gives the most likely prediction of vehicle's location and heading.
 
-Next, the resampled particles are fed back into the prediction step and the cycle predict-update-resample continues.
+Next, the resampled particles are fed back into the prediction step and the cycle of predict-update-resample continues.
 
 ---
 
