@@ -59,7 +59,7 @@ After the coordinate frame transformation, nearest neighbor data association is 
 
 <img src="/images/data_association.png" width="600">
 
-The sensor observations is incorporated into the particle filter by updating the weight of each particle with the likelihood of the sensor observations. Likelihood of individual lidar observations is calculated via a bivariate Gaussian probability density function with zero correlation between the x and y measurement, ![](https://latex.codecogs.com/gif.latex?\sigma_{xy}=sigma_{yx}=0).
+The sensor observations is incorporated into the particle filter by updating the weight of each particle with the likelihood of the sensor observations. Likelihood of individual lidar observations is calculated via a bivariate Gaussian probability density function with zero correlation between the x and y measurement, ![](https://latex.codecogs.com/gif.latex?\sigma_{xy}=\sigma_{yx}=0).
 
 ![](https://latex.codecogs.com/gif.latex?P(x,y;\mu_{x},\mu_{y},\sigma_{x}^{2},\sigma_{y}^{2})=\frac{1}{2\pi\sigma_{x}\sigma_{y}}e^{-\frac{1}{2}(\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}+\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}})})
 
@@ -71,5 +71,44 @@ By assuming individual sensor measurements are independent to each other, the li
 
 where ![](https://latex.codecogs.com/gif.latex?m) is the number of sensor observations at a time step.
 
+After the weights for all particles are updated, they are then renormalized to ensure they sum up to 1. 
+
 **Resample**
 
+After the update step, all the particles are resampled by the means of discrete probability density function using the updated and normalized weights. 
+
+Once resampling is done, the particle with highest weight is chosen. This particle gives the most likely prediction of vehicle's location and heading.
+
+Next, the resampled particles are fed back into the prediction step and the cycle predict-update-resample continues.
+
+---
+
+### Installation
+
+1. Download the Udacity Self Driving Car Nanodegree simulator from [here](https://github.com/udacity/self-driving-car-sim/releases).
+
+2. Set up and install [uWebSocketIO](https://github.com/uWebSockets/uWebSockets) by running the shell script in the project top directory:
+
+```
+$ install-ubuntu.sh
+```
+
+**Other Important Dependencies**
+
+* cmake >= 3.5
+* make >= 4.1
+* gcc/g++ >= 5.4
+
+---
+
+### How to run
+
+The main program can be built and run by doing the following from the project top directory.
+
+1. ./clean.sh
+
+2. ./build.sh
+
+3. ./run.sh
+
+Open the simulator, select `Project 3: Kidnapped Vehicle` and press `Start`.
