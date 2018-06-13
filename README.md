@@ -25,7 +25,7 @@ The overall particle filter localization pipeline is summarized in the diagram b
 
 **Initialization**
 
-The particle filter is initialized by sampling from a Gaussian distribution around the initial GPS estimates. The GPS measurements include the x coordinate, y coordinate (both in m) and the theta (orientation) of vehicle in radian. The standard deviations sigma_x, sigma_y, sigma_theta of the Gaussian sampling are based on the GPS specification.
+The particle filter is initialized by sampling from a Gaussian distribution around the initial GPS estimates. The GPS measurements include the x coordinate, y coordinate (both in m) and the theta (orientation) of vehicle in radian. The standard deviations ![](https://latex.codecogs.com/gif.latex?\sigma_{x}), ![](https://latex.codecogs.com/gif.latex?\sigma_{y}), ![](https://latex.codecogs.com/gif.latex?\sigma_{\theta}) of the Gaussian sampling are based on the GPS specification.
 
 The number of particles to be sampled is a parameter to be determined empirically. The larger the number of particles, the particle filter will be closer to representing the Bayesian posterior distribution. However it comes at a cost of long processing time and preventing localization in real time. On the other hand, if the number of particles is too few, we will not have enough particles to cover all the high likelihood state space. The number of particles we used here is 30.
 
@@ -51,6 +51,7 @@ The prediction step is applied to all the particles.
 
 Coordinate frame transformation is required to convert the sensor observations in vehicle coordinate system into the same reference frame as the map landmarks. This is given by a homogeneous transformation as follows:
 
+![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bmap%7D%5C%5Cy_%7Bmap%7D%5C%5C1%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dcos%5Ctheta_%7Bp%7D%26-sin%5Ctheta_%7Bp%7D%26x_%7Bp%7D%5C%5Csin%5Ctheta_%7Bp%7D%26cos%5Ctheta_%7Bp%7D%26y_%7Bp%7D%5C%5C0%260%261%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7Dx_%7Bcar%7D%5C%5Cy_%7Bcar%7D%5C%5C1%5Cend%7Bpmatrix%7D)
 
 After the coordinate frame transformation, nearest neighbor data association is then performed to pick the right corresponding landmark and observation pairs. The figure below illustrates general concept of nearest neighbor data association.
 
