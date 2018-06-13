@@ -41,7 +41,9 @@ The motion prediction for each time step, delta t, based on control inputs veloc
 
 ![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bf%7D%5C%5Cy_%7Bf%7D%5C%5C%5Ctheta_%7Bf%7D%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dx_%7B0%7D%5C%5Cy_%7B0%7D%5C%5C%5Ctheta_%7B0%7D%5Cend%7Bpmatrix%7D%2B%5Cbegin%7Bpmatrix%7D%5Cfrac%7Bv%7D%7B%5Cdot%7B%5Ctheta%7D%7D%5Bsin%28%5Ctheta_%7B0%7D%2B%5Cdot%7B%5Ctheta%7D%5CDelta%20t%29%29-sin%28%5Ctheta_%7B0%7D%29%5D%5C%5C%5Cfrac%7Bv%7D%7B%5Cdot%7B%5Ctheta%7D%7D%5Bcos%28%5Ctheta_%7B0%7D%29-cos%28%5Ctheta_%7B0%7D%2B%5Cdot%7B%5Ctheta%7D%5CDelta%20t%29%29%5D%5C%5C%5Cdot%7B%5Ctheta%7D%5CDelta%20t%5Cend%7Bpmatrix%7D) when ![](https://latex.codecogs.com/gif.latex?\dot{\theta}\neq0)
 
-To account for the uncertainty in the control inputs, we will also add Gaussian noise to the velocity and yaw rate. 
+To account for the uncertainty in motion, we will also add Gaussian noise to the x, y, and theta states. 
+
+![](https://latex.codecogs.com/gif.latex?%5Cbegin%7Bpmatrix%7Dx_%7Bf%2Cnoisy%7D%5C%5Cy_%7Bf%2Cnoisy%7D%5C%5C%5Ctheta_%7Bf%2Cnoisy%7D%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7Dx_%7Bf%7D%5C%5Cy_%7Bf%7D%5C%5C%5Ctheta_%7Bf%7D%5Cend%7Bpmatrix%7D%2B%5Cbegin%7Bpmatrix%7D%5Cmathcal%7BN%7D%280%2C%5Csigma_%7Bx%7D%5E%7B2%7D%29%5C%5C%5Cmathcal%7BN%7D%280%2C%5Csigma_%7By%7D%5E%7B2%7D%29%5C%5C%5Cmathcal%7BN%7D%280%2C%5Csigma_%7B%5Ctheta%7D%5E%7B2%7D%29%5Cend%7Bpmatrix%7D)
 
 The prediction step is applied to all the particles.
 
