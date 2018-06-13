@@ -67,7 +67,7 @@ where ![](https://latex.codecogs.com/gif.latex?(x,y)^{T}) is a sensor observatio
 
 By assuming individual sensor measurements are independent to each other, the likelihood of all the measurements are combined by taking their product, resulting the following equation:
 
-![](https://latex.codecogs.com/gif.latex?w=\prod_{i=0}^{m} P(x_{i},y_{i};\mu_{x,i},\mu_{y,i},\sigma_{x}^{2},\sigma_{y}^{2}))
+![](https://latex.codecogs.com/gif.latex?w=\prod_{i=0}^{m}P(x_{i},y_{i};\mu_{x,i},\mu_{y,i},\sigma_{x}^{2},\sigma_{y}^{2}))
 
 where ![](https://latex.codecogs.com/gif.latex?m) is the number of sensor observations at a time step.
 
